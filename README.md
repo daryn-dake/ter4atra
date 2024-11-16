@@ -1,1 +1,14 @@
-# ter4atra
+import sqlite3
+connection = sqlite3.connect('main.sq3', 5)
+cur = connection.cursor()
+cur.execute("CREATE TABLE students(first_name TEXT, last_name TEXT, age TEXT);")
+connection.commit()
+cur.execute("INSERT INTO students VALUES('John', 'Doe', 25);")
+connection.commit()
+cur.execute("INSERT INTO students VALUES('Chris', 'Watson', 18);")
+connection.commit()
+cur.execute("INSERT INTO students VALUES('Daryn', 'Tursynzhan', 23);")
+connection.commit()
+cur.execute("SELECT * FROM students;")
+res = cur.fetchall()
+print(res)
